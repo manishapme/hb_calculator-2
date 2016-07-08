@@ -6,7 +6,7 @@ calculator program yourself in this file.
 
 """
 
-from arithmetic import *
+from arithmetic import divide, add, subtract, multiply, square, cube, power, mod
 
 
 while True:
