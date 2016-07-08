@@ -12,29 +12,36 @@ from arithmetic import *
 while True:
     user_input = raw_input(">> ")
     tokens = user_input.split(" ")
-    if tokens[0] == 'q':
+    action = tokens[0]
+
+    if len(tokens) == 3:
+        num1 = tokens[1]
+        num2 = tokens[2]
+    else:
+        num1 = tokens[1]
+        num2 = 0
+
+    if action == 'q':
         break
-    elif tokens[0] == "+":
-        result = add(int(tokens[1]), int(tokens[2]))
-        print result
-    elif tokens[0] == "-":
-        result = subtract(int(tokens[1]), int(tokens[2]))
-        print result
-    elif tokens[0] == "*":
-        result = multiply(int(tokens[1]), int(tokens[2]))
-        print result
-    elif tokens[0] == "/":
-        result = divide(tokens[1], tokens[2])
-        print result
-    elif tokens[0] == "square":
-        result = square(int(tokens[1]))
-        print result
-    elif tokens[0] == "cube":
-        result = cube(int(tokens[1]))
-        print result
-    elif tokens[0] == "pow":
-        result = power(int(tokens[1]), int(tokens[2]))
-        print result
-    elif tokens[0] == "mod":
-        result = mod(int(tokens[1]), int(tokens[2]))
-        print result
+    elif action == "/":
+        result = divide(num1, num2)
+    else:
+        num1 = int(num1)
+        num2 = int(num2)
+        if action == "+":
+            result = add(num1, num2)
+        elif action == "-":
+            result = subtract(num1, num2)
+        elif action == "*":
+            result = multiply(num1, num2)
+        elif action == "square":
+            result = square(num1)
+        elif action == "cube":
+            result = cube(num1)
+        elif action == "pow":
+            result = power(num1, num2)
+        elif action == "mod":
+            result = mod(num1, num2)
+    print result
+
+
